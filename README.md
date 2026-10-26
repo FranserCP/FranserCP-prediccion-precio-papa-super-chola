@@ -1,59 +1,89 @@
-# Predicción semanal del precio de la papa súper chola
+# 🥔 Predicción semanal del precio de la papa súper chola en Riobamba
 
-**Proyecto de investigación de maestría | Riobamba, Ecuador**
+**Proyecto de investigación | Maestría en Inteligencia de Negocios y Ciencia de Datos**
+
+**Universidad Indoamérica | Ecuador, 2026**
 
 ## 📌 Descripción del proyecto
 
-Este repositorio contiene los códigos en R utilizados para desarrollar un modelo predictivo del precio semanal de la papa súper chola en Riobamba, Ecuador.
+Este repositorio contiene los scripts desarrollados en R para la predicción del precio semanal de la papa súper chola comercializada en el mercado mayorista de Riobamba, Ecuador.
 
-La investigación utiliza técnicas de series temporales y aprendizaje automático para analizar el comportamiento histórico de los precios y comparar diferentes modelos predictivos.
+La investigación compara modelos estadísticos de series temporales y algoritmos de aprendizaje automático, utilizando registros históricos de precios y variables climáticas para identificar la alternativa con mejor desempeño predictivo.
 
 ## 🎯 Objetivo
 
-Estimar el precio semanal de la papa súper chola mediante modelos estadísticos y algoritmos de aprendizaje automático, identificando el modelo con mejor desempeño predictivo.
+Implementar y comparar modelos de series temporales y aprendizaje automático para estimar el precio semanal de la papa súper chola en Riobamba, con el propósito de aportar información que apoye la toma de decisiones en el sector agrícola.
 
-## 📊 Modelos implementados
+## 📊 Datos utilizados
 
-- **Series temporales:** ARIMA, SARIMA, ARIMAX y SARIMAX.
-- **Aprendizaje automático:** Random Forest y XGBoost.
+- **Precios agrícolas:** Sistema de Información Pública Agropecuaria (SIPA).
+- **Variables climáticas:** Meteostat.
+- **Período de precios:** enero de 2022 a junio de 2026.
+- **Registros originales de precios:** 628 observaciones.
+- **Frecuencia de análisis:** semanal.
+- **Variables climáticas:** temperatura promedio, precipitación y velocidad del viento.
 
-Se evaluaron modelos con y sin variables climáticas. El mejor desempeño se obtuvo con **XGBoost utilizando únicamente información histórica de precios**.
+## 🤖 Modelos implementados
 
-## 🏆 Principales resultados
+Se evaluaron ocho configuraciones predictivas correspondientes a seis modelos:
 
-El modelo seleccionado fue **XGBoost semanal sin variables climáticas**, con los siguientes resultados:
+**Modelos de series temporales:**
+- ARIMA
+- SARIMA
+- ARIMAX
+- SARIMAX
+
+**Modelos de aprendizaje automático:**
+- Random Forest (con y sin clima)
+- XGBoost (con y sin clima)
+
+## 🏆 Modelo seleccionado: ARIMAX
+
+Después de comparar los modelos mediante las métricas MAE, RMSE, MAPE, sMAPE y R², **ARIMAX obtuvo el mejor desempeño predictivo general**.
+
+Este modelo combina el comportamiento histórico del precio con información climática rezagada una semana.
+
+### Resultados principales
 
 | Métrica | Resultado |
 |---|---|
-| MAE | 0,61 USD/quintal |
-| RMSE | 1,04 USD/quintal |
-| MAPE | 2,93 % |
-| R² | 0,86 |
+| MAE | 1,56 USD/quintal |
+| RMSE | 2,09 USD/quintal |
+| MAPE | 7,75 % |
+| sMAPE | 7,81 % |
+| R² | 0,33 |
+
+Estos resultados corresponden a la evaluación fuera de muestra y muestran que ARIMAX obtuvo el menor error entre las configuraciones analizadas.
 
 ## 📁 Organización del repositorio
 
-- **`datos/`**: Archivos de datos utilizados en la investigación.
-- **`scripts/`**: Códigos en R para el procesamiento, modelado y evaluación.
-- **`resultados/`**: Resultados obtenidos durante el análisis.
+- **`datos/`**: Bases históricas de precios agrícolas y variables climáticas.
+- **`scripts/`**: Códigos R utilizados para el procesamiento, modelado y evaluación.
+- **`resultados/`**: Resultados y visualizaciones generadas durante la investigación.
 
 ## 💻 Reproducción del análisis
 
-Para revisar y reproducir el análisis:
+Para revisar y ejecutar los análisis:
 
-1. Descargar o clonar este repositorio.
-2. Abrir los archivos de la carpeta `scripts/` en RStudio.
-3. Instalar los paquetes de R requeridos por los scripts.
-4. Verificar las rutas de los archivos de entrada de `datos/`.
-5. Ejecutar los códigos correspondientes al procesamiento y entrenamiento de los modelos.
+1. Descargar el repositorio desde GitHub.
+2. Abrir los archivos de la carpeta `scripts/` utilizando RStudio.
+3. Instalar los paquetes de R requeridos por cada script.
+4. Verificar las rutas de los archivos de entrada ubicados en `datos/`.
+5. Ejecutar los scripts de procesamiento y modelado, respetando sus dependencias.
+6. Consultar los archivos generados en `resultados/`.
 
-**Nota:** Las instrucciones detalladas de ejecución y las versiones de las dependencias se documentarán posteriormente.
+**Nota:** Próximamente se incorporarán instrucciones detalladas de ejecución y las versiones de los paquetes utilizados para facilitar la reproducción completa.
 
-## 📚 Fuente de información
+## 📈 Visualización de resultados
 
-Los datos de precios utilizados en la investigación provienen del Sistema de Información Pública Agropecuaria (SIPA) de Ecuador.
+La investigación incluye un dashboard interactivo desarrollado en **Looker Studio**, que permite consultar el comportamiento histórico del precio, las métricas de evaluación y las estimaciones del modelo seleccionado.
 
-## 👨‍💻 Autor
+## 👨‍🎓 Autor
 
-**Ronny Cartagena**
+**Ronny Franser Cartagena Peralta**
 
-Proyecto de investigación desarrollado como parte del trabajo de titulación de maestría.
+Maestría en Inteligencia de Negocios y Ciencia de Datos.
+
+**Universidad Indoamérica — 2026**
+
+Trabajo de titulación: *Modelos estadísticos para la predicción del precio de la papa chola en Riobamba*.
